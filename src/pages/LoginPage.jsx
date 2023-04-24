@@ -12,10 +12,9 @@ const LoginPage = () => {
   async function handleLoginSubmit(ev) {
     ev.preventDefault();
     try {
-     const res =   await axios.post("/login", { email, password });
-     let result = await res.json();
-     console.log("daaaaaaaata",result)
-      setUser(result);
+     const {data} =  await axios.post("/login", { email, password });
+     console.log("daaaaaaaata",data)
+      setUser(data);
       alert("Login successful");
       setRedirect(true);
     } catch (e) {
